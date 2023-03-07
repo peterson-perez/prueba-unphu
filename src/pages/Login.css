@@ -1,0 +1,14 @@
+.email{
+    background-color: black;
+}
+
+.password{
+    background-color: black;
+}
+
+button{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
