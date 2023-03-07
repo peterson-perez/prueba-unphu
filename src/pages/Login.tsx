@@ -1,38 +1,68 @@
 import useForm from '../components/hooks/useForm';
 import LoginType from "../models/LoginType";
+import {
+    MDBBtn,
+    MDBContainer,
+    MDBRow,
+    MDBCol,
+    MDBCard,
+    MDBCardBody,
+    MDBInput,
+    MDBIcon
+}
+    from 'mdb-react-ui-kit';
+
+import './Login.css';
 
 const Login = () => {
 
-    const {loginData, handleOnchange, handleSubmit} = useForm<LoginType>({
-       username: '',
-       password: ''
+    const { loginData, handleOnChange, handleSubmit } = useForm<LoginType>({
+        username: '',
+        password: ''
     });
+
+     const { username, password } = loginData;
 
     return (
         <>
-            <h1>Login</h1>
-            <hr />
 
-            <form autoComplete='off' onSubmit={handleSubmit}>
-                <input
-                    name='username'
-                    className="email"
-                    type="text"
-                    onChange={handleOnchange}
-                />
+            <MDBContainer fluid>
 
-                <input
-                    name='password'
-                    className="password"
-                    type="password"
-                    onChange={handleOnchange}
-                />
+                <MDBRow className='d-flex justify-content-center align-items-center h-100'>
+                    <MDBCol col='12'>
 
-                <button
-                    className="btn btn-outline-primary mt-2"
-                    type='submit'
-                >inicial sesion</button>
-            </form>
+                        <MDBCard className='bg-dark text-white my-5 mx-auto' style={{ borderRadius: '1rem', maxWidth: '400px' }}>
+                            <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>
+
+                                <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+                                <p className="text-white-50 mb-5">Please enter your login and password!</p>
+
+                                <MDBInput className='email' wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Email address' id='formControlLg' type='email' size="lg" name='username' onChange={handleOnChange} value={ username }/>
+                                <MDBInput className='password' wrapperClass='mb-4 mx-5 w-100' labelClass='text-white' label='Password' id='formControlLg' type='password' size="lg" name='password' onChange={handleOnChange} value={ password }/>
+
+                                <p className="small mb-3 pb-lg-2"><a className="text-white-50" href="#!">Forgot password?</a></p>
+                                <button className='mx-2 px-5 border border-white' color='white' onClick={handleSubmit}>
+                                    Login
+                                </button>
+
+                                <div className='d-flex flex-row mt-3 mb-5'>
+                                    <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
+                                        <MDBIcon fab icon='facebook-f' size="lg" />
+                                    </MDBBtn>
+                                </div>
+
+                                <div>
+                                    <p className="mb-0">Don't have an account? <a href="#!" className="text-white-50 fw-bold">Sign Up</a></p>
+
+                                </div>
+                            </MDBCardBody>
+                        </MDBCard>
+
+                    </MDBCol>
+                </MDBRow>
+
+            </MDBContainer>
+
         </>
     )
 }
