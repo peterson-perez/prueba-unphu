@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
 import AddUser from './pages/AddUser';
 import Dashboard from './pages/Dashboard';
 import ListUsers from './pages/ListUsers';
