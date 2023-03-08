@@ -1,0 +1,22 @@
+.email{
+    background-color: black;
+}
+
+.email:focus-within{
+    background-color: gray;
+}
+
+.password{
+    background-color: black;
+}
+
+.password:focus-within{
+    background-color: gray;
+}
+
+button{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
