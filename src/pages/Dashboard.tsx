@@ -1,6 +1,6 @@
 import Menu from "../components/Menu";
 import Header from "../components/Header";
-import './Dashboard.css'
+import './css/Dashboard.css';
 
 const Dashboard = () => {
 
