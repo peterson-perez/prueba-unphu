@@ -1,13 +1,20 @@
-import { useNavigate } from 'react-router-dom';
-import { Formik } from 'formik';
-import './css/Login.css';
-import LoginInterface from '../models/LoginInterface';
+import { Formik, FormikHelpers } from 'formik';
+import '../pages/css/index.css';
+import { AuthInterface } from '../models/AuthInterface';
 import LoginForm from '../components/Forms/LoginForm';
 import LoginValidation from '../components/validations/LoginValidation';
+import { useDispatch } from 'react-redux';
+import { login } from '../redux/slices/authReducer';
 
 const Login = () => {
 
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const handleSubmit = (values: AuthInterface, { resetForm }: FormikHelpers<AuthInterface>) => {
+        dispatch(login(values))
+        resetForm();
+    }
+
 
     const handleValues = {
         email: '',
@@ -16,17 +23,11 @@ const Login = () => {
 
     return (
         <>
-            <Formik<LoginInterface>
+            <Formik<AuthInterface>
                 initialValues={handleValues}
                 validate={LoginValidation}
 
-                onSubmit={
-                    (values, { resetForm }) => {
-                        navigate('/Dashboard');
-                        resetForm();
-                        console.log(values)
-                    }
-                }
+                onSubmit={handleSubmit}
                 component={LoginForm}
             />
         </>
