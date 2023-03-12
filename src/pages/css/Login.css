@@ -1,22 +1,37 @@
-.email{
-    background-color: black;
-}
 
-.email:focus-within{
-    background-color: gray;
-}
-
-.password{
-    background-color: black;
-}
-
-.password:focus-within{
-    background-color: gray;
-}
-
-button{
+/* input username */
+.email {
     background-color: black;
     color: white;
-    border-radius: 5px;
-    padding: 10px;
+}
+
+.email:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+/* input password */
+.password {
+    background-color: black;
+    color: white;
+}
+
+.password:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+/* mensajes de errores */
+
+.error-option{
+    margin-top: -1px;
+}
+
+/* boton submit */
+
+#button-submit {
+    width: 80px;
+    height: 40px;
 }
