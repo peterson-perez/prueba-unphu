@@ -1,50 +1,61 @@
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 import Header from "../components/Header";
-import './css/ListUsers.css';
+import { RootState } from "../redux/store";
+import './css/userForm.css';
 
 const ListUsersTable = () => {
 
+    const { listUsers } = useSelector((state: RootState) => state.user)
+
+    const [currentPage, setCurrentPage] = useState(0)
+
+    const nextPage = () => {
+        if(listUsers.length > currentPage)
+        setCurrentPage(currentPage + 5)
+        console.log(listUsers.length)
+    }
+
+    const prevPage = () => {
+        if (currentPage > 0)
+            setCurrentPage(currentPage - 5)
+    }
+
+    const filtedUsers = () => {
+        return listUsers.slice(currentPage, currentPage + 5);
+    }
+
     return (
         <>
-            <header>
-                <Header />
-            </header>
+            <Header />
 
+            <table className="table">
 
-            <body>
-
-                <table className="table table-light">
-                    <thead>
-                        <tr >
-                            <th scope="col">Id</th>
-                            <th scope="col">Nombre completo</th>
-                            <th scope="col">Correo electronico</th>
-                            <th scope="col">Genero</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <thead>
+                    <tr >
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre completo</th>
+                        <th scope="col">Correo electronico</th>
+                        <th scope="col">Genero</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {filtedUsers().map(user => (
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Piterson perez Ramirez</td>
-                            <td>dwasd@hotmail.com</td>
-                            <td>Hombre</td>
+                            <th scope="row">{user.id}</th>
+                            <td>{user.name} {user.firstLastName} {user.secondLastName}</td>
+                            <td>{user.email}</td>
+                            <td>{user.gender}</td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Wanda Sanchez</td>
-                            <td>Wanda@hotmail.com</td>
-                            <td>Mujer</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>Hombre</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    ))}
+                </tbody>
 
-            </body>
+            </table>
+            <div className="d-flex">
+                <button className="btn btn-outline-dark m-2" onClick={prevPage}>Previa</button>
+                <p className="m-2 d-flex align-items-center">{currentPage}</p>
+                <button className="btn btn-outline-dark m-2" onClick={nextPage}>Siguiente</button>
+            </div>
         </>
     )
 }
