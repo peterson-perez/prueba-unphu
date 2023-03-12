@@ -25,8 +25,8 @@
 
 /* mensajes de errores */
 
-.error-option{
-    margin-top: -1px;
+.error{
+    color: red;
 }
 
 /* boton submit */

@@ -1,0 +1,16 @@
+@import url('bootstrap');
+
+body {
+    margin: 20px;
+}
+
+input {
+    background-color: black;
+    color: white;
+}
+
+input:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}

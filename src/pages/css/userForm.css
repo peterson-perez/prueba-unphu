@@ -1,0 +1,117 @@
+table {
+    margin: 30px;
+}
+
+#name {
+    background-color: black;
+    color: white;
+}
+
+#name:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#firstLastName {
+    background-color: black;
+    color: white;
+}
+
+#firstLastName:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#secondLastName {
+    background-color: black;
+    color: white;
+}
+
+#secondLastName:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#id {
+    background-color: black;
+    color: white;
+}
+
+#id:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#age {
+    background-color: black;
+    color: white;
+}
+
+#age:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#address {
+    background-color: black;
+    color: white;
+}
+
+#address:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#telephone {
+    background-color: black;
+    color: white;
+}
+
+#telephone:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#email {
+    background-color: black;
+    color: white;
+}
+
+#email:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#children {
+    background-color: black;
+    color: white;
+}
+
+#children:focus-within {
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#gender {
+    background-color: black;
+    color: white;
+}
+
+#civilStatus {
+    background-color: black;
+    color: white;
+}
+
+#birthday {
+    background-color: black;
+    color: white;
+}
