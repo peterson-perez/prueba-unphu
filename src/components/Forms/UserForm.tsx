@@ -2,7 +2,7 @@ import DatePicker from "react-datepicker";
 import { FormikProps, ErrorMessage, Field } from "formik";
 import { UserInterface } from "../../models/UserInterface";
 import "react-datepicker/dist/react-datepicker.css";
-import "../../pages/css/AddUser.css"
+import '../../pages/css/userForm.css'
 
 
 
