@@ -1,6 +1,6 @@
 import { FormikProps, ErrorMessage } from "formik";
-import LoginInterface from "../../models/LoginInterface";
-import '../../pages/css/Login.css'
+import { AuthInterface } from "../../models/AuthInterface";
+import '../../pages/css/login.css'
 
 import {
     MDBContainer,
@@ -12,7 +12,7 @@ import {
 }
     from 'mdb-react-ui-kit';
 
-const LoginForm: (props: FormikProps<LoginInterface>) => JSX.Element =
+const LoginForm: (props: FormikProps<AuthInterface>) => JSX.Element =
     ({ values, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
 
         < MDBContainer fluid >
@@ -27,7 +27,7 @@ const LoginForm: (props: FormikProps<LoginInterface>) => JSX.Element =
                                 <p className="text-white-50 mb-5">por favor escribe tu email y contraseña!</p>
 
                                 <label>Email address</label>
-                                <MDBInput className='email' wrapperClass='mb-4 mx-5 w-100' id='formControlLg' type='email' size="lg" name='email' onChange={handleChange} value={values.email} onBlur={handleBlur} />
+                                <MDBInput autoComplete="off" className='email' wrapperClass='mb-4 mx-5 w-100' id='formControlLg' type='email' size="lg" name='email' onChange={handleChange} value={values.email} onBlur={handleBlur} />
                                 <ErrorMessage className='error' name='email' component='small' />
 
                                 <label>Password</label>
