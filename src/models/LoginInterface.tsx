@@ -1,5 +1,6 @@
+
 interface LoginInterface  {
-    username: string;
+    email: string;
     password: string;
 }
 
