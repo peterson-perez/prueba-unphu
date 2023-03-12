@@ -4,13 +4,9 @@ const Dashboard = () => {
 
     return (
         <>
-            <header className="header-container">
                 <Header />
-            </header>
-            <body>
-                <h1>Dashboard</h1>
+                <h1 className="m-3">Dashboard</h1>
                 <hr />
-            </body>
         </>
     )
 }
