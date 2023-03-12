@@ -1,10 +1,19 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../redux/slices/authReducer";
+
+
 
 const Header = () => {
 
+    const dispatch = useDispatch();
+
+    const handleClick = () => {
+        dispatch(logout())
+    }
 
     return (
-        <>
+        <header>
 
             {/* header */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -16,7 +25,7 @@ const Header = () => {
                         <ul className="dropdown-menu">
                             <p className="d-flex justify-content-center">Bienvenido</p>
                             <li><hr className="dropdown-divider" /></li>
-                            <Link className="btn btn-outline-dark d-flex justify-content-center" to={'/Login'}>Cerrar sesión</Link>
+                            <button className="btn btn-outline-dark w-100" onClick={handleClick}>Cerrar sesión</button>
                         </ul>
                     </div>
                     <button className="btn btn-outline-light m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" >
@@ -35,14 +44,14 @@ const Header = () => {
                     <Link className="btn btn-outline-light text-white" to={'/Dashboard'}>Dashboard</Link>
                 </div>
                 <div className="w-100 d-flex justify-content-center">
-                    <hr className="w-75"/>
+                    <hr className="w-75" />
                 </div>
                 <div className="offcanvas-body">
-                    <Link className="btn btn-outline-light m-2  d-flex justify-content-center" to={'/AddUser'}>Agregar usuario</Link>
-                    <Link className="btn btn-outline-light m-2  d-flex justify-content-center" to={'/ListUser'}>Lista de usuarios</Link>
+                    <Link className="btn btn-outline-light m-2  d-flex justify-content-center" to={'/adduser'}>Agregar usuario</Link>
+                    <Link className="btn btn-outline-light m-2  d-flex justify-content-center" to={'/listusers'}>Lista de usuarios</Link>
                 </div>
             </div>
-        </>
+        </header>
     )
 }
 
