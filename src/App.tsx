@@ -1,34 +1,39 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import AddUser from './pages/AddUser';
 import Dashboard from './pages/Dashboard';
 import ListUsers from './pages/ListUsers';
 import Login from './pages/Login';
+import { RootState } from './redux/store';
+
 
 const App = () => {
-    const router = createBrowserRouter([
 
-        {
-            path: '/Login',
-            element: <Login />,
-            errorElement: <h1>Esta pagina no existe!!!</h1>
-        },
-        {
-            path: '/Dashboard',
-            element: <Dashboard />
-        },
-        {
-            path: '/ListUser',
-            element: <ListUsers />
-        },
-        {
-            path: '/AddUser',
-            element: <AddUser />
-        }
-    ])
+    const { email, password } = useSelector((state: RootState) => state.auth);
+    const navigate = useNavigate()
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+         if(!email && !password && pathname !== '/login'){
+            navigate('/login');
+         }
+         if(email && password && pathname === '/login'){
+            navigate('/dashboard')
+         }
+    }, [email, password, pathname ,navigate])
 
     return (
         <>
-            <RouterProvider router={router} />
+            <Routes>
+                <Route
+                    path='/' element={<Navigate to="/dashboard" />}
+                />
+                <Route path='/login' element={<Login />} />
+                <Route path='/dashboard' element={<Dashboard />} />
+                <Route path='adduser' element={<AddUser />} />
+                <Route path='/listusers' element={<ListUsers />} />
+            </Routes>
         </>
     )
 }
