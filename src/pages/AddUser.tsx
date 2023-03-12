@@ -6,9 +6,12 @@ import Header from "../components/Header";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/slices/userReducer";
 import '../pages/css/index.css'
+import { useNavigate } from "react-router-dom";
 
 
 const AddUser = () => {
+
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
 
@@ -31,21 +34,20 @@ const AddUser = () => {
     const handleSubmit = (values: UserInterface, { resetForm }: FormikHelpers<UserInterface>) => {
         dispatch(addUser(values))
         resetForm();
+        navigate('/listusers')
+
     }
 
     return (
         <>
-            <header>
-                <Header />
-            </header>
-            <body>
-                <Formik<UserInterface>
-                    initialValues={handleValues}
-                    validate={UserValidation}
-                    onSubmit={handleSubmit}
-                    component={UserForm}
-                />
-            </body>
+            <Header />
+            <Formik<UserInterface>
+                initialValues={handleValues}
+                validate={UserValidation}
+                onSubmit={handleSubmit}
+                component={UserForm}
+            />
+
         </>
     )
 }
