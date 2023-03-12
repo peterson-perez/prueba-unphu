@@ -10,5 +10,5 @@ export interface UserInterface {
     email: string;
     civilStatus: string;
     children: string;
-    birthday: string;
+    birthday: Date | undefined
 }
