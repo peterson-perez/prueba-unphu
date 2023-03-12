@@ -1,27 +1,36 @@
-
-import { Formik } from "formik";
+import { Formik, FormikHelpers } from "formik";
 import { UserForm } from "../components/Forms/UserForm";
 import { UserInterface } from "../models/UserInterface";
 import UserValidation from "../components/validations/UserValidation";
-import './css/AddUser.css';
 import Header from "../components/Header";
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/slices/userReducer";
+import '../pages/css/index.css'
 
 
 const AddUser = () => {
+
+    const dispatch = useDispatch()
+
 
     const handleValues = {
         name: '',
         firstLastName: '',
         secondLastName: '',
-        id: 0,
-        age: 0,
+        id: '',
+        age: '',
         gender: '',
         address: '',
-        telephone: 0,
+        telephone: '',
         email: '',
         civilStatus: '',
         children: '',
         birthday: undefined
+    }
+
+    const handleSubmit = (values: UserInterface, { resetForm }: FormikHelpers<UserInterface>) => {
+        dispatch(addUser(values))
+        resetForm();
     }
 
     return (
@@ -32,16 +41,8 @@ const AddUser = () => {
             <body>
                 <Formik<UserInterface>
                     initialValues={handleValues}
-
                     validate={UserValidation}
-
-                    onSubmit={
-                        (values, { resetForm }) => {
-                            // resetForm();
-                            console.log(values)
-                            resetForm();
-                        }
-                    }
+                    onSubmit={handleSubmit}
                     component={UserForm}
                 />
             </body>
