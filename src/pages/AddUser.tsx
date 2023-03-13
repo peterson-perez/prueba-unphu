@@ -1,6 +1,6 @@
 import { Formik, FormikHelpers } from "formik";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { UserForm } from "../components/Forms/userForm";
 import { UserInterface } from "../models/userInterface";
 import UserValidation from "../components/validations/userValidation";
@@ -28,11 +28,11 @@ const AddUser = () => {
         email: '',
         civilStatus: '',
         children: '',
-        birthday: undefined
+        birthday: ''
     }
 
     const handleSubmit = (values: UserInterface, { resetForm }: FormikHelpers<UserInterface>) => {
-        dispatch(addUser(values))
+        dispatch(addUser({...values , birthday: values.birthday.toString()}))
         resetForm();
         navigate('/listusers')
 

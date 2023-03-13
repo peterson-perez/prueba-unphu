@@ -119,7 +119,7 @@ export const UserForm: (props: FormikProps<UserInterface>) => JSX.Element =
                                                 <div className="form-outline">
                                                     <label className="form-label" htmlFor="lastName">Fecha de nacimiento</label>
                                                     <DatePicker id="birthday" name="birthday" className="form-control form-control-lg"
-                                                        value={values.birthday?.toLocaleDateString()}
+                                                        value={values.birthday?.toString()}
                                                         onChange={dateOnChange}
                                                         onBlur={handleBlur} />
                                                     <ErrorMessage className="error" name="birthday" component="small" />

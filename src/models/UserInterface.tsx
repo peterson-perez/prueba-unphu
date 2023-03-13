@@ -10,7 +10,7 @@ export interface UserInterface {
     email: string;
     civilStatus: string;
     children: string;
-    birthday: Date | undefined 
+    birthday: string;
 }
 
 export interface UsersState {
