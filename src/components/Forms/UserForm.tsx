@@ -106,7 +106,7 @@ export const UserForm: (props: FormikProps<UserInterface>) => JSX.Element =
 
                                                 <div className="form-outline datepicker w-100">
                                                     <label className="form-label" htmlFor="address">Direccion</label>
-                                                    <input type="text" id="address" name="address" className="form-control form-control-lg"
+                                                    <textarea id="address" name="address" className="form-control form-control-lg"
                                                         value={values.address}
                                                         onChange={handleChange}
                                                         onBlur={handleBlur} />
