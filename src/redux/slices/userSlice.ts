@@ -5,7 +5,7 @@ const initialState: UsersState = {
   listUsers: []
 }
 
-export const userReducer = createSlice({
+export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -16,6 +16,6 @@ export const userReducer = createSlice({
   },
 })
 
-export const { addUser } = userReducer.actions;
+export const { addUser } = userSlice.actions;
 
-export default userReducer.reducer;
+export default userSlice.reducer;

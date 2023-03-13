@@ -7,7 +7,7 @@ const initialState: AuthInterface = {
     password: '',
 }
 
-export const authReducer = createSlice({
+export const authSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
@@ -23,6 +23,6 @@ export const authReducer = createSlice({
     },
 })
 
-export const { login, logout } = authReducer.actions;
+export const { login, logout } = authSlice.actions;
 
-export default authReducer.reducer;
+export default authSlice.reducer;

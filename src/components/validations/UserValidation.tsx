@@ -49,7 +49,7 @@ const UserValidation = (values: any) => {
         if (!values.email) {
             errors.email = 'Este campo es obligatorio';
         } if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-            errors.email = 'Solo puede contener numeros, letras, guiones, guiones bajos y puntos';
+            errors.email = 'Solo puede contener numeros, letras, guiones, guiones bajos puntos y ademas debe ser formato email.';
         };
 
         if (!values.telephone) {
