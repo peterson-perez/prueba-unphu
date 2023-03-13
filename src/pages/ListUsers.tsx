@@ -3,26 +3,22 @@ import { useState } from "react";
 import Header from "../components/Header";
 import { RootState } from "../redux/store";
 import './css/userForm.css';
+import { Link, useSearchParams } from "react-router-dom";
 
+const LIMIT_PER_PAGE = 5
 const ListUsersTable = () => {
 
     const { listUsers } = useSelector((state: RootState) => state.user)
 
-    const [currentPage, setCurrentPage] = useState(0)
+    const [search] = useSearchParams()
+    const currentPage = Number(search.get('page') || 0)
 
-    const nextPage = () => {
-        if(listUsers.length > currentPage)
-        setCurrentPage(currentPage + 5)
-        console.log(listUsers.length)
-    }
+    const canGoBack = currentPage > 0
+    const canGoNext = (currentPage + 1) * LIMIT_PER_PAGE < listUsers.length
 
-    const prevPage = () => {
-        if (currentPage > 0)
-            setCurrentPage(currentPage - 5)
-    }
-
-    const filtedUsers = () => {
-        return listUsers.slice(currentPage, currentPage + 5);
+    const filteredUsers = () => {
+        const offset = currentPage * LIMIT_PER_PAGE
+        return listUsers.slice(offset, offset + LIMIT_PER_PAGE);
     }
 
     return (
@@ -40,8 +36,8 @@ const ListUsersTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {filtedUsers().map(user => (
-                        <tr>
+                    {filteredUsers().map(user => (
+                        <tr key={ user.id }>
                             <th scope="row">{user.id}</th>
                             <td>{user.name} {user.firstLastName} {user.secondLastName}</td>
                             <td>{user.email}</td>
@@ -52,9 +48,9 @@ const ListUsersTable = () => {
 
             </table>
             <div className="d-flex">
-                <button className="btn btn-outline-dark m-2" onClick={prevPage}>Previa</button>
+                <Link className="btn btn-outline-dark m-2" to={'/listusers?page=' + (canGoBack ? currentPage - 1 : currentPage)} >Previa</Link>
                 <p className="m-2 d-flex align-items-center">{currentPage}</p>
-                <button className="btn btn-outline-dark m-2" onClick={nextPage}>Siguiente</button>
+                <Link className="btn btn-outline-dark m-2" to={'/listusers?page=' + (canGoNext ? currentPage + 1 : currentPage)}>Siguiente</Link>
             </div>
         </>
     )
