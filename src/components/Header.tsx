@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { logout } from "../redux/slices/authReducer";
+import { logout } from "../redux/slices/authSlice";
 
 
 

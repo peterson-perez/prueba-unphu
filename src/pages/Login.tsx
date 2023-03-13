@@ -1,10 +1,10 @@
 import { Formik, FormikHelpers } from 'formik';
-import '../pages/css/index.css';
-import { AuthInterface } from '../models/AuthInterface';
-import LoginForm from '../components/Forms/LoginForm';
-import LoginValidation from '../components/validations/LoginValidation';
+import { AuthInterface } from '../models/authInterface';
+import LoginValidation from '../components/validations/loginValidation';
 import { useDispatch } from 'react-redux';
-import { login } from '../redux/slices/authReducer';
+import { login } from '../redux/slices/authSlice';
+import LoginForm from '../components/Forms/loginForm';
+import '../pages/css/index.css';
 
 const Login = () => {
 

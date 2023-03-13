@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AuthInterface } from "../../models/AuthInterface";
+import { AuthInterface } from "../../models/authInterface";
 
 
 const initialState: AuthInterface = {

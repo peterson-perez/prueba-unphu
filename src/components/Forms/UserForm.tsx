@@ -1,6 +1,6 @@
 import DatePicker from "react-datepicker";
 import { FormikProps, ErrorMessage, Field } from "formik";
-import { UserInterface } from "../../models/UserInterface";
+import { UserInterface } from "../../models/userInterface";
 import "react-datepicker/dist/react-datepicker.css";
 import '../../pages/css/userForm.css'
 

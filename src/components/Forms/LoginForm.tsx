@@ -1,5 +1,5 @@
 import { FormikProps, ErrorMessage } from "formik";
-import { AuthInterface } from "../../models/AuthInterface";
+import { AuthInterface } from "../../models/authInterface";
 import '../../pages/css/login.css'
 
 import {
