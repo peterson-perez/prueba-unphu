@@ -38,8 +38,8 @@ const UserValidation = (values: any) => {
 
         if (!values.address) {
             errors.address = 'Este campo es obligatorio';
-        } if(!/^[A-Z0-9/# ]{10,50}$/i.test(values.address)){
-            errors.address = 'la cedula solo puede tener numeros y entre 10 y 50 caracteres';
+        } if(!/^[A-Z0-9/# ]{10,200}$/i.test(values.address)){
+            errors.address = 'la direccion solo puede tener numeros y entre 10 y 200 caracteres';
         }
 
         if (!values.birthday) {
