@@ -1,24 +1,12 @@
-import { useSelector } from "react-redux";
 import Header from "../components/header";
-import { RootState } from "../redux/store";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './css/userForm.css';
+import UsePagination from "../components/hooks/usePagination";
 
-const LIMIT_PER_PAGE = 5
 const ListUsersTable = () => {
 
-    const { listUsers } = useSelector((state: RootState) => state.user)
 
-    const [search] = useSearchParams()
-    const currentPage = Number(search.get('page') || 0)
-
-    const canGoBack = currentPage > 0
-    const canGoNext = (currentPage + 1) * LIMIT_PER_PAGE < listUsers.length
-
-    const filteredUsers = () => {
-        const offset = currentPage * LIMIT_PER_PAGE
-        return listUsers.slice(offset, offset + LIMIT_PER_PAGE);
-    }
+    const { currentPage, filteredUsers, canGoBack, canGoNext } = UsePagination()
 
     return (
         <>
