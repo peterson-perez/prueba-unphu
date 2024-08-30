@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { UserInterface, UsersState } from '../../models/userInterface';
+import { UserInterface, UsersState } from '../../models/UserInterface';
 
 const initialState: UsersState = {
   listUsers: []

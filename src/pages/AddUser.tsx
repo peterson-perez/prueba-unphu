@@ -1,12 +1,12 @@
 import { Formik, FormikHelpers } from "formik";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { UserForm } from "../components/Forms/userForm";
-import { UserInterface } from "../models/userInterface";
+import { UserForm } from "../components/Forms/UserForm";
+import { UserInterface } from "../models/UserInterface";
 import UserValidation from "../components/validations/userValidation";
 import { addUser } from "../redux/slices/userSlice";
-import Header from "../components/header";
-import '../pages/css/index.css'
+import Header from "../components/Header";
+// import '../pages/css/index.css'
 
 
 const AddUser = () => {

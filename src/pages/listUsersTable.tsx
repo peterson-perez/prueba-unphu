@@ -1,6 +1,6 @@
-import Header from "../components/header";
+import Header from "../components/Header";
 import { Link } from "react-router-dom";
-import './css/userForm.css';
+// import './css/userForm.css';
 import UsePagination from "../components/hooks/usePagination";
 
 const ListUsersTable = () => {

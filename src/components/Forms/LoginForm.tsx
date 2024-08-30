@@ -1,6 +1,5 @@
 import { FormikProps, ErrorMessage } from "formik";
-import { AuthInterface } from "../../models/authInterface";
-import '../../pages/css/login.css'
+import { AuthInterface } from "../../models/AuthInterface";
 
 import {
     MDBContainer,

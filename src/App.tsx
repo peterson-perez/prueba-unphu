@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import AddUser from './pages/AddUser';
-import Dashboard from './pages/dashboard';
+import Dashboard from './pages/Dashboard';
 import ListUsersTable from './pages/listUsersTable';
-import Login from './pages/login';
+import Login from './pages/Login';
 import { RootState } from './redux/store';
 
 
